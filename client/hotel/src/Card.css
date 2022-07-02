@@ -1,0 +1,52 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.card {
+  width:300px;
+  height: auto;
+} 
+.container-fluid{
+  display: grid;
+  flex-wrap: wrap;
+  justify-content:space-evenly;
+  grid-template-columns: auto auto auto;
+}
+
+.card img{
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+.card button{
+  size:10px;
+}
+.fluid-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  object-fit: contain;
+}
+.para {
+  background-color: gray;
+  text-align: center;
+}
+.modal {
+  width: fit-content;
+}
+.button :hover {
+  box-shadow: 5px 5px 20px 5px grey;
+}
+.image2 {
+  width:300px;
+  height:40%;
+}
+.Container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.closing{
+float: right;
+}

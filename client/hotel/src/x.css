@@ -1,0 +1,120 @@
+*{
+    margin:0px;
+    padding:0px;
+
+}
+header{
+    width:100%;
+    height:100vh;
+
+    background-repeat: no-repeat;
+    background-position:right ;
+    border-radius: 150px;
+    box-shadow: 2px 2px 2px 2px oranges;
+}
+.mheader{
+    width:100%;
+    height:100px;
+    display:flex;
+    justify-content:space-between ;
+    align-items: center;
+    
+}
+.mheader .logo img{
+    width:250px;
+    height:70px;
+    padding-left:60px;
+}
+.mheader nav{
+    width:450px;
+    display:flex;
+    justify-content:space-between ;
+    align-items: center;
+}
+.mheader a{
+    text-decoration:none;
+    color:black;
+    text-transform: uppercase;
+}
+.menubut button{
+    width:100px;
+    height:30px;
+    margin-right:50px;
+    border:1px solid orange;
+    background-color:orange;
+    border-radius: 10px;
+    font-weight:bold;
+}
+.left
+{
+    margin-top:50px;
+    margin-right:200px;
+    display:flex;
+    justify-content: center;
+}
+.lit{
+	display: flex;
+}
+ .left img{
+     margin-right:400px;
+     border-radius: 50%;
+     align-items:center ;
+ }
+ #SectionName
+ {
+    width:100px;
+    height:30px;
+    margin-right:20px;
+    text-decoration: solid;
+ }
+ .bt{
+	 size: 30px;
+	 height: fit-content;
+	 border-radius: 20px;
+	 margin-left:350px;
+	 background-color: orange;
+ }
+ .Block
+ {   background-color: rgba(192, 192, 192, 0.26); 
+	 margin-top:60px;
+	 margin-left: 500px;
+	 margin-right: 500px;
+	 margin-bottom: 150px;
+	 padding-top: 30px;
+	 padding-bottom: 30px;
+	 padding-left: 80px;
+	 padding-right: 80px;
+	 border-radius: 5px;
+	 position:absolute;
+ 
+ }
+ .btn-dark
+{
+	background-color:#2b2b2b;
+	margin-top: 20px;
+	padding: 15px;
+    font-size: 17px;
+    border-radius: 5px;
+    width:100%; 
+	color: white;  
+	overflow: hidden;
+	border: none;
+}
+.btn-dark:hover
+{
+	transition: background-color .5s;
+	background-color:#5cdeff;
+	border: none;
+}
+.input{
+	margin-top:20px;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	outline: none;
+	background-color: rgba(192, 192, 192, 0.26); 
+}
+.image2 {
+	border-radius:20%;
+	width:200px;
+  }
