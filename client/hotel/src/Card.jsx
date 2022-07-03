@@ -1,19 +1,19 @@
-import React,{useState} from 'react'
+import {useState} from 'react'
 import './home.css'
 import Modal from 'react-modal'
-import Axios from 'axios'
 import {useDispatch} from 'react-redux'
 import {bookedRoom} from './features/roomSlice/roomSlice'
 function Card(props)
 {
   const dispatch=new useDispatch()
   const SubmitBooking=()=>{
-    console.log(props.type)
     dispatch(bookedRoom({
+      id:props.id,
       type:props.type,
       price:props.Price,
       source:props.source
     }))
+    alert("Booked")
 }
   const [modalISOpen,setModalISOpen]=useState(false)
     return(
@@ -30,22 +30,18 @@ function Card(props)
       </div>
   <Modal class="modal" isOpen={modalISOpen} style={{
     overlay: {
+      top:100,
       position: 'fixed',
       left: '260px',
       backgroundColor: 'transparent',
       width:"700px",
-      outline:"no"
+      outline:"no",
+      height:"500px",
     },
-    content: {
-      position: 'absolute',
-
-    }
   }}>
   <h2>{props.type}</h2>
-  <img className="image2" src={props.source} alt=""></img>
-  <b><p>Description</p></b>
-  <p>{}</p>
-  <button className='Booking' onClick={SubmitBooking}>Book</button>
+  <img className="image2" src={props.source}  alt=""></img>
+  <button className='Booking' style={{display:"block"}} onClick={SubmitBooking}>Book</button>
   <button className='closing' onClick={()=>setModalISOpen(false)}>Close</button>
   </Modal>
 </>

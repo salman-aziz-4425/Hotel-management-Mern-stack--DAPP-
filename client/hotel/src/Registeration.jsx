@@ -2,7 +2,6 @@ import { useState } from "react";
 import Axios from 'axios'
 import './App.css'
 import Navbar from './Navbar'
-import { Email } from "@material-ui/icons";
 
 
 function Registeration() {
@@ -36,7 +35,7 @@ const Adddata = (event) => {
   UserData.append('Password',password)
   UserData.append('UserImage',image)
   Axios.post("http://localhost:3000/create",UserData).then(() => {
-    console.log("Submitted")
+    alert("submitted")
   });
 };
 

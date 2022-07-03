@@ -7,37 +7,28 @@ import {Provider} from 'react-redux'
 import {store} from './app/store'
 import './Card.css'
  function Rooms(){
-var name=JSON.parse(localStorage.getItem('name'));
 const [state, setstate] = useState(0);
 const [type,settype]=useState("");
 const [Price, setPrice] = useState(0);
 const [Rooms,setRoom]=useState([
-  {
-    type:"",
-    Price:"",
-    source:""
-  }
 ])
 const [typeFlag,settypeFlag]=useState("")
 const [Pages,setpagesCount]=useState(1)
 const [boolean,setBooleam]=useState(false);
 const [pageCount,setpageCount]=useState(0)
 useEffect(() => {
-  Getdata()
+    Getdata()
 // eslint-disable-next-line react-hooks/exhaustive-deps
-},[type, Price])
-const Getdata = (count) => {
+},[type, Price,Pages])
+const Getdata = () => {
   var Url=''
   if(typeFlag=='True'){
-      Url=`http://localhost:3000/Rooms?Price=${Price}&typeFlag=True&Page=${count}`
-      console.log("Price")
+      Url=`http://localhost:3000/Rooms?Price=${Price}&typeFlag=True&Page=${Pages}`
   }
   else{
-    Url=`http://localhost:3000/Rooms?type=${type}&typeFlag=FalsePage=${count}`
-    console.log("Type")
+    Url=`http://localhost:3000/Rooms?type=${type}&typeFlag=FalsePage=${Pages}`
   }
 Axios.get(Url).then((result) => {
-  console.log(result)
   setRoom(result)
   setpageCount(result.data.pagesCount)
   if(result.data.room.length>0){
@@ -47,7 +38,6 @@ Axios.get(Url).then((result) => {
 });
 };
 const inputHandler=(event)=>{
-  event.preventDefault()
 setPrice(event.target.value)
 setstate(event.target.value)
 settypeFlag("True")
@@ -58,16 +48,12 @@ const typeHandler=(event)=>{
   settypeFlag("False")
 
 }
-const nextPageHandler=(event)=>{
-  console.log(Pages)
+const nextPageHandler=()=>{
   setpagesCount(Pages+1)
-  Getdata(Pages+1)
 }
-const previousPageHandler=(event)=>{
+const previousPageHandler=()=>{
   if(Pages==1){return Pages}
-    console.log(Pages)
   setpagesCount(Pages-1)
-  Getdata(Pages-1)
 }
     return(
 <>
@@ -96,16 +82,16 @@ const previousPageHandler=(event)=>{
 {boolean===true?<div>
   <div className="container-fluid">
   {
-   Rooms.data.room.map((object)=>{
+Rooms.data.room.map((object)=>{
   return(
     <Provider store={store}>
- <Card type={object.type} Price={object.price} source={object.source} Name={name}/>
+ <Card id={object._id} type={object.type} Price={object.price} source={object.source}/>
     </Provider>
   )
   
 })
 }
-  </div>
+</div>
 <footer style={{"padding":"30px",display:"flex",justifyContent:"space-evenly"}}>
 <button disabled={Pages===1}  onClick={previousPageHandler}>Previous</button>
 <button disabled={Pages===pageCount}  onClick={nextPageHandler}>Next</button>

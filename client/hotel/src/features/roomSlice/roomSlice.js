@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    Room:[]
+    Room:[],
+    Cost:0,
 }
 
 export const BookedRoomSlice = createSlice({
@@ -12,6 +13,9 @@ export const BookedRoomSlice = createSlice({
       state.Room.push(action.payload)
       state.Room=[...new Set(state.Room)]
     },
+    updateRoom:(state,action)=>{
+      state.Room=action.payload
+    },
     deleteRoom:(state,action)=>{
         state.Room=[]
     }
@@ -19,6 +23,6 @@ export const BookedRoomSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const {bookedRoom,deleteRoom} =BookedRoomSlice.actions
+export const {bookedRoom,deleteRoom,updateRoom} =BookedRoomSlice.actions
 
 export default BookedRoomSlice.reducer

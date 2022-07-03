@@ -1,4 +1,4 @@
-import {useState,useEffect } from "react";
+import {useState} from "react";
 import Axios from 'axios'
 import './App.css'
 import {useNavigate} from 'react-router'
@@ -24,9 +24,7 @@ const PasschangeHandler=(event)=>{
 const Getdata = (event) => {
   event.preventDefault()
   Axios.get("http://localhost:3000/Login?name="+name+"&"+"password="+password).then((result)=>{
-    
     const img2= new Buffer.from(result.data.img.data).toString("base64")
-    console.log(img2)
   if(result.status==201){
       dispatch(storingInfo({
         Name:result.data.Name,

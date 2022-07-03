@@ -36,7 +36,7 @@ routers.get('/Rooms',async (req,res)=>{
         if((count/pagesPerCount)%2==0){
             res.status(201).send({
                 room,
-                pagesCount:parseInt(count/pagesPerCount)
+                pagesCount:parseInt(count/pagesPerCount),
                })
         }
         else{
