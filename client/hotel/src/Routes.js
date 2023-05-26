@@ -10,6 +10,7 @@ import Account from './Account'
 import {Provider, useSelector} from 'react-redux' 
 import { persistor, store } from './app/store';
 import { PersistGate } from 'redux-persist/integration/react';
+import LandingScreen from './LandingPage/LandingScreen';
 export default function Routers() {
     const Token=useSelector(state=>state.Hotel.User.User.Token)
   return (
@@ -20,8 +21,9 @@ export default function Routers() {
     <Provider store={store}>
        <Login/>
     </Provider>:<Home/>}></Route>
+    <Route path="/Home" element={<Home/>}></Route>
         <Route path="/Login/Registeration" element={<Registeration/>}></Route>
-        <Route exact path="/" element={<Home/>}></Route>
+        <Route exact path="/" element={<LandingScreen/>}></Route>
         <Route path="/Rooms" element={Token!=''?<Rooms/>:<Home/>}></Route>
         <Route path="/Logout" element={
         <Provider store={store}>

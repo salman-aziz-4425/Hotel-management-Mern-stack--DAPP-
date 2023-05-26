@@ -23,10 +23,10 @@ useEffect(() => {
 const Getdata = () => {
   var Url=''
   if(typeFlag=='True'){
-      Url=`http://localhost:3000/Rooms?Price=${Price}&typeFlag=True&Page=${Pages}`
+      Url=`http://localhost:3001/Rooms?Price=${Price}&typeFlag=True&Page=${Pages}`
   }
   else{
-    Url=`http://localhost:3000/Rooms?type=${type}&typeFlag=FalsePage=${Pages}`
+    Url=`http://localhost:3001/Rooms?type=${type}&typeFlag=FalsePage=${Pages}`
   }
 Axios.get(Url).then((result) => {
   setRoom(result)
@@ -60,8 +60,8 @@ const previousPageHandler=()=>{
 <Provider store={store}>
     <Navbar />
     </Provider>
-<h2 style={{marginTop:"20px",marginLeft:"500px"}}>Search Rooms</h2>
-<b><hr size="5" width="100px" style={{marginTop:"20px",marginLeft:"550px",color:"#654321"}}></hr></b>
+<h2 style={{marginTop:"4%"}}>Search Rooms</h2>
+<b><hr size="5" width="100px" style={{marginTop:"20px",marginLeft:"46%",color:"#654321"}}></hr></b>
 <div className="row" style={{width:"1200px"}}>
   <div className="col" style={{marginLeft:"300px"}}>
   <label className="form-check-label">
@@ -76,7 +76,7 @@ const previousPageHandler=()=>{
   </div>
   <div className="col" style={{marginLeft:"70px"}}>
   <p>Price Range:${state}</p>
-  <input type="range" className="form-range" min="0" max="600"  onChange={inputHandler} style={{width:"100px",marginTop:"-10px",marginleft:"600px"}}></input>
+  <input type="range"  min="0" max="600"  onChange={inputHandler} style={{width:"50px",marginTop:"-10px",marginleft:"600px"}}></input>
 </div>
 </div>
 {boolean===true?<div>
@@ -92,7 +92,7 @@ Rooms.data.room.map((object)=>{
 })
 }
 </div>
-<footer style={{"padding":"30px",display:"flex",justifyContent:"space-evenly"}}>
+<footer  style={Rooms.data.room.length>0?{"padding":"30px",display:"flex",justifyContent:"space-evenly",borderRadius:"20px"}:{"padding":"30px",marginTop:"24%",display:"flex",justifyContent:"space-evenly",borderRadius:"20px"}}>
 <button disabled={Pages===1}  onClick={previousPageHandler}>Previous</button>
 <button disabled={Pages===pageCount}  onClick={nextPageHandler}>Next</button>
 </footer>

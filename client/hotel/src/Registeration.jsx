@@ -33,8 +33,9 @@ const Adddata = (event) => {
   UserData.append('Name',name)
   UserData.append('Email',email)
   UserData.append('Password',password)
+  UserData.append('type',"Customer")
   UserData.append('UserImage',image)
-  Axios.post("http://localhost:3000/create",UserData).then(() => {
+  Axios.post("http://localhost:3001/create",UserData).then(() => {
     alert("submitted")
   });
 };

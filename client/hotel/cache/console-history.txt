@@ -1,0 +1,13 @@
+(await num2.getGreetings2()).toString()
+const num2=await Num2.attach('0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0')
+const Num2=await ethers.getContractFactory('Greetings2')
+const Num2=await getContractFactory('Greetings2')
+(await num1.getGreeting()).toString()
+(await num1.getGreetings()).toString()
+(await num1.getGreetings2()).toString()
+const num1=await Num1.attach('0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0');
+const num1=await ethers.attach('0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0');
+const Num1=await ethers.getContractFactory("Greetings")
+(await num1.getGreeting()).toString()
+const num1=await Num1.attach('0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0');
+const Num1=await ethers.getContractFactory("Greetings")

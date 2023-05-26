@@ -2,10 +2,13 @@ import { createSlice } from '@reduxjs/toolkit'
 import storage from 'redux-persist/lib/storage';
 const initialState = {
   User:{
+    _id:"",
     Name:"",
     Email:"",
     Token:"",
-    img:""
+    img:"",
+    limit:0,
+    type:""
   }
 }
 
@@ -19,10 +22,13 @@ export const UserSlice = createSlice({
     },
     deleteInfo:(state,action)=>{
       state.User={
+        _id:"",
         Name:"",
         Email:"",
         Token:"",
-        img:""
+        img:"",
+        limit:0,
+        type:""
       }
       localStorage.removeItem('persist:root')
       storage.removeItem('persist:root')

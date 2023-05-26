@@ -1,0 +1,126 @@
+{
+  "version": "3.4",
+  "log": [
+    {
+      "contracts/Greetings.sol:Greetings": {
+        "src": "contracts/Greetings.sol:6",
+        "version": {
+          "withMetadata": "f658e524e03cb924e459d47744e8a97a616fd22634d543d0f869b25c46caebc2",
+          "withoutMetadata": "9b5070959ef072b8a625b4b0c3a0c59bacd9c9623fa5956d56dfed50e49af257",
+          "linkedWithoutMetadata": "9b5070959ef072b8a625b4b0c3a0c59bacd9c9623fa5956d56dfed50e49af257"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "getGreeting()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      },
+      "contracts/Greetings2.sol:Greetings2": {
+        "src": "contracts/Greetings2.sol:6",
+        "version": {
+          "withMetadata": "5e2f1ea777c2b4eb058ed55b511ecc53bcda23b541ea6616b1760f52166206d8",
+          "withoutMetadata": "ea8d4f6179588fd674ae92244a3a242612eaa18e8cdef10cf7573f095e435ea9",
+          "linkedWithoutMetadata": "ea8d4f6179588fd674ae92244a3a242612eaa18e8cdef10cf7573f095e435ea9"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "getGreeting()",
+          "getGreetings2()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      }
+    },
+    {
+      "contracts/Greetings2.sol:Greetings2": {
+        "src": "contracts/Greetings2.sol:6",
+        "version": {
+          "withMetadata": "5e2f1ea777c2b4eb058ed55b511ecc53bcda23b541ea6616b1760f52166206d8",
+          "withoutMetadata": "ea8d4f6179588fd674ae92244a3a242612eaa18e8cdef10cf7573f095e435ea9",
+          "linkedWithoutMetadata": "ea8d4f6179588fd674ae92244a3a242612eaa18e8cdef10cf7573f095e435ea9"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "getGreeting()",
+          "getGreetings2()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      }
+    },
+    {
+      "contracts/Greetings2.sol:Greetings": {
+        "src": "contracts/Greetings2.sol:6",
+        "version": {
+          "withMetadata": "aa4e1760b73931b2659382f8d8a87a64f64e2df465635c8aef35cb2e9338e232",
+          "withoutMetadata": "ea8d4f6179588fd674ae92244a3a242612eaa18e8cdef10cf7573f095e435ea9",
+          "linkedWithoutMetadata": "ea8d4f6179588fd674ae92244a3a242612eaa18e8cdef10cf7573f095e435ea9"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "getGreeting()",
+          "getGreetings2()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      }
+    },
+    {
+      "contracts/Greetings.sol:Greetings": {
+        "src": "contracts/Greetings.sol:6",
+        "version": {
+          "withMetadata": "f658e524e03cb924e459d47744e8a97a616fd22634d543d0f869b25c46caebc2",
+          "withoutMetadata": "9b5070959ef072b8a625b4b0c3a0c59bacd9c9623fa5956d56dfed50e49af257",
+          "linkedWithoutMetadata": "9b5070959ef072b8a625b4b0c3a0c59bacd9c9623fa5956d56dfed50e49af257"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "getGreeting()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [],
+          "types": {},
+          "layoutVersion": "1.2",
+          "flat": false
+        },
+        "solcVersion": "0.8.18"
+      }
+    }
+  ]
+}

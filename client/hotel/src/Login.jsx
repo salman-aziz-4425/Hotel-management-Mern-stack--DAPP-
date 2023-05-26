@@ -23,16 +23,21 @@ const PasschangeHandler=(event)=>{
 
 const Getdata = (event) => {
   event.preventDefault()
-  Axios.get("http://localhost:3000/Login?name="+name+"&"+"password="+password).then((result)=>{
-    const img2= new Buffer.from(result.data.img.data).toString("base64")
+  console.log("hello")
+  Axios.get("http://localhost:3001/Login?name="+name+"&"+"password="+password).then((result)=>{
+    console.log(result)
   if(result.status==201){
       dispatch(storingInfo({
+        _id:result.data._id,
         Name:result.data.Name,
         Email:result.data.Email,
         Token:result.data.Token,
-        img:"data:image/jpeg;base64,"+img2
+        img:result.data.img,
+        limit:result.data.Limit,
+        type:result.data.Type
       }))
-      navigate('/')
+      alert("loged in")
+      navigate('/Home')
      }
   })
 };
