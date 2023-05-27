@@ -1,35 +1,25 @@
 import { useState } from "react";
 import { ethers } from "ethers";
 import Greeter from "../artifacts/contracts/hotelManagement.sol/hotelManagement.json";
-
-// The contract address
-const contractAddress = "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9";
-
+import constants from '../utils/constants.json'
+const contractAddress = constants.key
 export async function requestAccount() {
   await window.ethereum.request({ method: "eth_requestAccounts" });
 }
-
-// Create a contract instance outside the function
-const provider = new ethers.providers.Web3Provider(window.ethereum);
+export async function createPayment(userId, payment, rooms) {
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
 const signer = provider.getSigner();
 const contract = new ethers.Contract(contractAddress, Greeter.abi, signer);
-
-export async function createPayment(userId, payment, rooms) {
   try {
     await requestAccount();
 
     const currentNonce = await signer.getTransactionCount();
-    const newNonce = currentNonce + 1; // Increment the nonce value
-
     const transaction = await contract.createPayment(userId, payment, rooms, {
       nonce:2,
     });
     const transactionReceipt = await transaction.wait();
-
-    // Check if the transaction was successful
     if (transactionReceipt.status === 1) {
       console.log(transactionReceipt);
-      // Retrieve the emitted event
       const filter = contract.filters.PaymentCreated(null);
       const events = await contract.queryFilter(filter, transactionReceipt.blockHash);
       const result = events[0].args[0];
@@ -44,6 +34,9 @@ export async function createPayment(userId, payment, rooms) {
 }
 
 export async function getPermissions() {
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+const signer = provider.getSigner();
+const contract = new ethers.Contract(contractAddress, Greeter.abi, signer);
   try {
     await requestAccount();
     console.log("Hello");
@@ -51,43 +44,85 @@ export async function getPermissions() {
     const transaction = await contract.getPermissions();
     console.log(transaction.length);
     return transaction
-
-    // Check if the transaction was successful
   } catch (error) {
     console.log("Error: ", error);
   }
 }
   export async function checkoutRooms(paymentID,rooms) {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+const signer = provider.getSigner();
+const contract = new ethers.Contract(contractAddress, Greeter.abi, signer);
     try {
       await requestAccount();
       console.log("Hello");
-  
+      console.log(rooms)
       const transaction = await contract.checkoutRooms(paymentID,rooms);
+      await transaction.wait();
       console.log(transaction.length);
       const filter = contract.filters.RoomsCheckedOut(null);
       const events = await contract.queryFilter(filter,  transaction.blockHash);
       const result = events[0].args[0];
-      await setTimeout(3000)
       return result;
     } catch (error) {
       console.log("Error: ", error);
     }
     
 }
-export async function approvePayment(Id) {
+export async function approve(userId) {
   try {
     await requestAccount();
-    console.log("Hello");
 
-    const transaction = await contract.approvePayment(Id);
-    console.log(transaction.length);
-    const filter = contract.filters.PaymentApproved(null,null);
-    const events = await contract.queryFilter(filter,  transaction.blockHash);
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    let contract = new ethers.Contract(contractAddress, Greeter.abi, signer);
+
+    const sender = await signer.getAddress();
+    console.log(sender);
+    console.log(userId);
+    let transaction2=""
+    await contract.approvePayment(sender, userId).then(async(result)=>{
+      await result.wait().then(async(result)=>{
+        console.log(result)
+        if(result.status===1){
+          contract = new ethers.Contract(contractAddress, Greeter.abi,provider);
+          transaction2=await contract.getPayment(sender, userId);
+          console.log(transaction2)
+        }
+      }).catch(()=>{
+        return false
+      })
+    }).catch(()=>{
+      return false
+    });
+    return transaction2;
+  } catch (error) {
+    console.log("Error: ", error);
+  }
+}
+
+
+
+
+
+
+
+export async function Checkcout(roomId) {
+  try {
+    await requestAccount();
+
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(contractAddress, Greeter.abi, signer);
+    console.log(roomId)
+    const transaction = await contract.userCheckout(roomId);
+    await transaction.wait();
+
+    const filter = contract.filters.userCheckedOut(null);
+    const events = await contract.queryFilter(filter, transaction.blockHash);
     const result = events[0].args[0];
     console.log(result)
     return result;
   } catch (error) {
     console.log("Error: ", error);
   }
-  
 }

@@ -24,14 +24,14 @@ const userSchema=new mongoose.Schema({
    limit:{
       type:Number
    },
-   ownedRooms:[
-      {
-         type: mongoose.Schema.Types.ObjectId,
-        ref: 'rooms'
-      }
-   ]
-
-},
+   ownedRooms: [
+          {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'rooms',
+            unique:true
+          }
+      ]
+   },
 {
    timestamps:true
 })

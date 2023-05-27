@@ -34,7 +34,8 @@ const Getdata = (event) => {
         Token:result.data.Token,
         img:result.data.img,
         limit:result.data.Limit,
-        type:result.data.Type
+        type:result.data.Type,
+        rooms:result.data.rooms
       }))
       alert("loged in")
       navigate('/Home')

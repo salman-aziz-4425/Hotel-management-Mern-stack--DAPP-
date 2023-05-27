@@ -16,5 +16,6 @@ routers.get('/Rooms',roomsController.getRooms)
 routers.post('/create',upload.single('UserImage'),userController.create)
 routers.get('/Login',userController.Login)
 routers.get('/getUser',userController.getUsers)
-routers.put('/assignRooms',userController.Login)
+routers.post('/giveRooms',userController.giveRooms)
+routers.delete('/checkoutRooms',userController.checkeoutRooms)
 module.exports=routers
