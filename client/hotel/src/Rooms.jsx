@@ -74,9 +74,9 @@ const previousPageHandler=()=>{
   </select>
   </label>
   </div>
-  <div className="col" style={{marginLeft:"70px"}}>
+  <div className="col" style={{marginLeft:"500px"}}>
   <p>Price Range:${state}</p>
-  <input type="range"  min="0" max="600"  onChange={inputHandler} style={{width:"50px",marginTop:"-10px",marginleft:"600px"}}></input>
+  <input type="range"  min={0} max="600"  onChange={inputHandler} style={{marginTop:"-10px",marginleft:"700x"}}></input>
 </div>
 </div>
 {boolean===true?<div>
@@ -92,7 +92,7 @@ Rooms.data.room.map((object)=>{
 })
 }
 </div>
-<footer  style={Rooms.data.room.length>0?{"padding":"30px",display:"flex",justifyContent:"space-evenly",borderRadius:"20px"}:{"padding":"30px",marginTop:"24%",display:"flex",justifyContent:"space-evenly",borderRadius:"20px"}}>
+<footer  style={Rooms.data.room.length>0?{"padding":"30px",display:"flex",justifyContent:"space-evenly",borderRadius:"20px"}:{padding:"30px",marginTop:"24%",display:"flex",justifyContent:"space-evenly",borderRadius:"20px"}}>
 <button disabled={Pages===1}  onClick={previousPageHandler}>Previous</button>
 <button disabled={Pages===pageCount}  onClick={nextPageHandler}>Next</button>
 </footer>

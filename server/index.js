@@ -1,6 +1,6 @@
 const express=require('express')
 require('./db/mongoose')
-const roomRouters=require('./routers/Rooms')
+const roomRouters=require('./routers/Routes')
 const cors=require('cors')
 const app=express()
 

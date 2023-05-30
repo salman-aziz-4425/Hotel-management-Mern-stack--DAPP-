@@ -8,10 +8,9 @@
     height:500px;
 }
 .Container-fluid{
-    margin-top:-70px;
     display: flex;
     flex-wrap: wrap;
-    justify-content:space-evenly
+    justify-content:space-evenly;
 }
 :root{
     --clr-accent-400:hsl(142,90%,61%);

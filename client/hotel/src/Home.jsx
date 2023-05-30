@@ -3,6 +3,7 @@ import "./home.css";
 import { MDBCol, MDBContainer, MDBRow, MDBFooter } from "mdbreact";
 import {Provider} from 'react-redux' 
 import {store} from './app/store'
+import Review from "./Components/Review";
 function Home() {
   return (
     <>
@@ -10,7 +11,7 @@ function Home() {
     <Navbar />
     </Provider>
       <div className="Container">
-        <p>Welcome!</p>
+        <h1 style={{fontSize:"330%","font-family": "Montserrat,sans-serif",color:"white",marginLeft:"40%",marginTop:"13%",fontWeight:"bold"}}>Welcome!</h1>
       </div>
       <div className="Body">
         <b>
@@ -26,7 +27,7 @@ function Home() {
           </h1>
         </b>
         <div className="Container-fluid">
-        <div className="card" style={{backgroundImage:"url(https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500)"}}>
+        <div className="card" style={{backgroundImage:"url(https://images.pexels.com/photos/271816/pexels-photo-271816.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=400)"}}>
         <div className="card-Price">
           <p>$100</p>
         </div>
@@ -61,12 +62,12 @@ function Home() {
               "font-family": "Montserrat,sans-serif",
               fontSize: "30px",
               fontWeight: "bold",
+              marginBottom:"2%"
             }}
           >
+            Our Reviews
           </h1>
-      <div className="container-fluid2" >
-     
-      </div>
+          <Review/>
       <div className="icons">
 
       </div>
@@ -112,7 +113,7 @@ function Home() {
         <MDBContainer fluid>
           &copy; {new Date().getFullYear()}
           </MDBContainer>
-          <p style={{paddingLeft:"6px"}}>Powered by SalmanAziz </p>
+          <p style={{paddingLeft:"6px",color:"white"}}>Powered by SalmanAziz </p>
       </div>
     </MDBFooter>
     </>
